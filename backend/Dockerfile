@@ -8,6 +8,8 @@ RUN npm ci
 
 COPY . .
 
+COPY .env.example .env
+
 RUN npm run build
 
 ENTRYPOINT ["npm", "run", "start:prod"]

@@ -24,6 +24,8 @@ services:
     image: mongo
     ports:
       - "27017:27017"
+    networks:
+      - nest-vue-test
 networks:
   nest-vue-test:
     driver: bridge
