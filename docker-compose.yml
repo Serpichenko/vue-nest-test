@@ -1,0 +1,29 @@
+version: "3"
+services:
+  backend:
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    container_name: "backend"
+    ports:
+      - "3000:3000"
+    networks:
+      - nest-vue-test
+  frontend:
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+    container_name: "frontend"
+    ports:
+      - "80:80"
+    networks:
+      - nest-vue-test
+  mongo:
+    container_name: mongo
+    hostname: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+networks:
+  nest-vue-test:
+    driver: bridge
